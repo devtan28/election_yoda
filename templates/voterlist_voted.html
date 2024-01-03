@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Election Yoda | {{name}}
+{% endblock %}
+
+{% block main %}
+<table class="table" style="width: 50%; margin: auto; text-align: right;">
+    <tbody>
+        <tr>
+            <td>
+                <form action="/electionhome" method="post">
+                <input type="hidden" name="hiddenElectionId" value="{{ election_id }}">
+                <button class="btn btn-link" type="submit">&lt back</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<table class = "table" style="width: 50%; margin: auto;">
+    <tbody>
+            <tr>
+                <td style="text-align: left;"><h5>{{name}}</h5></td>
+                <td style="text-align: right; color:
+                {% if status == 'active' %}
+                    green
+                {% elif status == 'inactive' %}
+                    black
+                {% elif status == 'halted' %}
+                    orange
+                {% elif status == 'closed' %}
+                    red
+                {% else %}
+                    black  <!-- Default color for unknown status -->
+                {% endif %};">Status: {{status}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class = "table" style="width: 50%; margin: auto;">
+        <tbody>
+                <tr>
+                    <td style="text-align: left;"><h6>Latest Results</h6></td>
+                    <td>as on {{todaytimestamp}}</td>
+                    <td style ="text-align: right;"> <button class="btn btn-link" id="downloadPdfButton">Download PDF</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    <table class = "table" style="width: 50%; margin: auto;">
+        <thead>
+            <tr>
+                <th>No. of voters</th>
+                <th>Votes casted</th>
+                <th> Quorum %</th>
+                <th>Voting %</th>
+                <th>Start date</th>
+                <th>End date</th>
+            </tr>
+        <tbody>
+                <tr>
+                    <td>{{votercount}}</td>
+                    <td>{{votescasted}}</td>
+                    <td>{{quorum}}</td>
+                    <td>{{votingpercent}}</td>
+                    <td>{{startdate}}</td>
+                    <td>{{enddate}}</td>
+                </tr>
+            </tbody>
+        </table>
+    <br>
+
+        <table class = "table" style="width: 50%; margin: auto;">
+            <tbody>
+                    <tr>
+                        <td style="text-align: left;"><h6>Voters That Have Voted</h6></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class = "table" style="width: 50%; margin: auto;">
+                <thead>
+                        <tr>
+                            <th style="text-align: left;">Vote ID</th>
+                            <th style="text-align: left;">Name of Voter</th>
+                            <th style="text-align: left;">Email Address</th>
+                            <th style="text-align: left;">Vote</th>
+                            <th style="text-align: left;">Timestamp</th>
+                        </tr>
+                <tbody>
+                        {% for voter in voter_list %}
+                        <tr>
+                            <th style="text-align: left;"> {{ voter.vote_id }}</th>
+                            <td style="text-align: left;"> {{ voter['Full Name'] }} </td>
+                            <td style="text-align: left;"> {{ voter['Email Address'] }} </td>
+                            <td style="text-align: left;"> {{ voter['vote'] }} </td>
+                            <td style="text-align: left;"> {{ voter['timestamp'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <p> {{ message }} </p>
+
+{% endblock %}

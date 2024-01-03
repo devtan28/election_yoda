@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Election Yoda | Create an Election
+{% endblock %}
+
+{% block main %}
+
+<table class="table" style="width: 50%; margin: auto; text-align: right;"><tbody><tr><td><a class="nav-link" href="/">&lt back to dashboard</a></td></tr></tbody></table>
+<br>
+
+<table class = "table" style="width: 50%; margin: auto; text-align: left;">
+    <tbody>
+        <tr>
+            <td><h3>Create an Election</h3></td></tr>
+            <tr><td>Creating a new election has 3 simple steps. Follow the instructions below. </td></tr>
+            </tbody></table>
+<br>
+<table class = "table" style="width: 50%; margin: auto; text-align: left;">
+    <tbody>
+        <form action="/buildelection" method="post">
+        <tr><td><h5>Step 1 of 3:</h5></td></tr>
+            </tbody></table>
+
+    <table class = "table" style="width: 50%; margin: auto; text-align: left;">
+        <tbody>
+            <tr><td>Enter election title:</td>
+                <td><div class="mb-3">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="electiontitle" name="electiontitle" placeholder="Election Title" type="text">
+                    </div>
+                </td>
+            </tr>
+            <tr><td>Enter start date:</td>
+                <td><div class="mb-3">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="startdate" name="startdate" placeholder="Start Date" type="date">
+                </div>
+                </td>
+            </tr>
+            <tr><td>Enter end date:</td>
+                <td><div class="mb-3">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="enddate" name="enddate" placeholder="End Date" type="date">
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class = "table" style="width: 50%; margin: auto; text-align: left;">
+        <tbody>
+            <tr><td><h5>Step 2 of 3:</h5></td></tr>
+                </tbody></table>
+
+        <table class = "table" style="width: 50%; margin: auto; text-align: left;">
+            <tbody>
+                <tr><td>Enter ballot question:</td>
+                    <td><div class="mb-3">
+                        <input class="form-control mx-auto w-auto" id="question" name="question" placeholder="Ballot Question" type="text">
+                        </div></td>
+                    </tr>
+                <tr><td>Enter three voting options:</td>
+                    <td><div class="mb-3">
+                        <input class="form-control mx-auto w-auto" id="option1" name="option1" placeholder="Option 1" type="text">
+                        <br>
+                        <input class="form-control mx-auto w-auto" id="option2" name="option2" placeholder="Option 2" type="text">
+                        <br>
+                        <input class="form-control mx-auto w-auto" id="option3" name="option3" placeholder="Option 3" type="text">                    </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class = "table" style="width: 50%; margin: auto; text-align: left;">
+            <tbody>
+                <tr><td><h5>Step 3 of 3:</h5></td></tr>
+                    </tbody></table>
+
+            <table class = "table" style="width: 50%; margin: auto; text-align: left;">
+                <tbody>
+                    <tr><td>Select a voter list:</td>
+                        <td><div class="mb-3">
+                                <select class="form-control mx-auto w-auto" name="voterlist" id="voterlist">
+                                    <option disabled selected>Click here to select</option>
+                                    {% for voterlist in voterlists %}
+                                    <option value={{voterlist.voterlist_id}}>{{voterlist.voterlistname}}</option>
+                                    {% endfor %}
+                                  </select>
+                            </div></td></tr>
+                            <tr><td>Minimum voting percent:</td>
+                                <td><div class="mb-3">
+                                    <input class="form-control mx-auto w-auto" id="quorum" name="quorum" placeholder="For eg. 75" type="text">
+                                    </div></td>
+                                </tr>
+                        </tbody>
+                        </table>
+                        <br>
+                        <button class="btn btn-primary" type="submit">Create Election</button></td></tr>
+                        </form>
+
+
+{% endblock %}

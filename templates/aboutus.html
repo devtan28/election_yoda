@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Election Yoda | {{ name }}
+{% endblock %}
+
+{% block main %}
+<body>
+    <header>
+        <h3>About Us</h3>
+    </header>
+
+    <br>
+    <div style="width: 50%; margin: auto; text-align: left;">
+    <section id="introduction">
+        <h4>Who We Are</h4>
+        <p>
+            ElectionYoda was created by Devesh Taneja in 2023 as part of the final project requirement of the Harvard's CS50 course requirement. This is v1.0 of the app.
+        </p>
+    </section>
+
+    <section id="our-team">
+        <h4>About Me</h4>
+        <p>
+            I am a enthusiastic computer geek. I decided to take up the CS50 challenge in 2023 after reading very positive reviews about it online.
+        </p>
+    </section>
+
+    <section id="mission-vision">
+        <h4>About CS50</h4>
+        <p>
+            CS50 - "Introduction to Computer Science" is a free online certificate course offered by Harvard University. Taught by Prof. David Malan, the course is spread across 10 weeks. Each week includes a video lecture and a (challenging!) coding exercise. At the end students are required to submit a Final Project they have to build themselves or in teams. The course is self-paced, which means its great for working professionals and students alike. I would highly recommend it to anyone who wants to learn computer programming. You don't need any pre-requisite knowledge about coding. You just need a LOT of tenacity!
+        </p>
+    </section>
+
+    <section id="contact">
+        <h4>Contact Us</h4>
+        <p>If you have any questions, you can reach me on <u>devesh.taneja@gmail.com</u></p>
+    </section>
+</div>
+</body>
+
+    {% endblock %}

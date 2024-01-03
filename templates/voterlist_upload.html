@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Election Yoda | Upload Voter List
+{% endblock %}
+
+{% block main %}
+<table class="table" style="width: 50%; margin: auto; text-align: right;"><tbody><tr><td><a class="nav-link" href="/">&lt back to dashboard</a></td></tr></tbody></table>
+<br>
+
+<h4>Upload a Voter List</h4>
+
+<p> Upload a .csv file with two fields - "Full Name" and "Email address" </p>
+
+<p>Select a file to upload</p>
+<form action="/voterlist_upload" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="voterlistfile" name="voterlistfile" placeholder="Election Title" type="file">
+    </div>
+    <div class="mb-3">
+        <p>Enter a name of the voter list</p>
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="voterlistname" name="voterlistname" placeholder="Voter List Name" type="text">
+    </div>
+    <button class="btn btn-primary" type="submit">Create Voter List</button>
+</form>
+<p></p>
+
+{% endblock %}

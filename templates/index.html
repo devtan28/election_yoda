@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var electionmessage = "{{ electionmessage }}";
+        var table = document.getElementById("electionTable");
+
+        if (electionmessage !== "") {
+            // If voterlistmessage is not empty, hide the table
+            table.style.display = "none";
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var voterlistmessage = "{{ voterlistmessage }}";
+        var table = document.getElementById("voterlistTable");
+
+        if (voterlistmessage !== "") {
+            // If voterlistmessage is not empty, hide the table
+            table.style.display = "none";
+        }
+    });
+</script>
+
+<table class = "table" style="width: 75%; margin: auto;">
+    <tbody>
+        <tr>
+            <td><h3 style ="text-align: left;">Hi {{ username }}, </h3></td>
+<div>
+<br>
+<table class = "table" style="width: 75%; margin: auto;">
+    <tbody>
+        <tr>
+            <td style ="text-align: left;"><h5> Elections </h5></td>
+            <td></td>
+            <td style ="text-align: right;"><a class="nav-link" href="/buildelection">+ Create a new election</a></td>
+            </tr></tbody></table>
+
+<p>{{ electionmessage }}</p>
+<table class = "table" style="width: 75%; margin: auto;", id ="electionTable">
+    <thead>
+        <tr>
+            <th>Election Id</th>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for election in elections %}
+        <form action="/electionhome" method="post">
+            <tr>
+                <td>{{ election.election_id }}</td>
+                <td>{{ election.name }}</td>
+                <td>{{ election.startdate }}</td>
+                <td>{{ election.enddate }}</td>
+                <td style="color:
+                {% if election.status == 'Active' %}
+                    green
+                {% elif election.status == 'Inactive' %}
+                    red
+                {% else %}
+                    black  <!-- Default color for unknown status -->
+                {% endif %};">{{ election.status }}</td>
+                <td>
+                    <input type="hidden" name="hiddenElectionId" value="{{ election.election_id }}">
+                    <button class="btn btn-link" type="submit">See Details</button>
+                </td>
+            </tr>
+        </form>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+
+<br>
+<table class = "table" style="width: 75%; margin: auto;">
+    <tbody>
+        <tr>
+            <td style ="text-align: left;"><h5> Voterlists </h5></td>
+            <td></td>
+            <td style ="text-align: right;"><a class="nav-link" href="/voterlist_upload">+ Create a new voter list</a></td>
+            </tr></tbody></table>
+
+<p>{{ voterlistmessage }}</p>
+<table class = "table" style="width: 75%; margin: auto;" id ="voterlistTable">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>No. of voters</th>
+            <th>Upload date</th>
+            <th>Upload time</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for voterlist in voterlists %}
+    <form action="/voterlist_details" method="post">
+        <tr>
+            <td>{{voterlist.voterlistname}}</a></td>
+            <td>{{voterlist.votercount}}</td>
+            <td>{{voterlist.uploaddate}}</td>
+            <td>{{voterlist.uploadtime}}</td>
+            <td><input type="hidden" name="hiddenVoterlistId" value="{{ voterlist.voterlist_id }}">
+                <button class="btn btn-link" type="submit">See Details</button></td>
+        </tr>
+        </form>
+        {% endfor %}
+    </tbody>
+
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Election Yoda | {{ name }}
+{% endblock %}
+
+{% block main %}
+
+
+<h3>Frequently Asked Questions</h3>
+<br>
+
+<div id="accordion" style="width: 75%; margin: auto; text-align: left;">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            How do I create an Election?
+          </button>
+        </h5>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          On the dashboard, you will find a link "+Create a new election". Click this link. It will take you to a page where you can start building your election. Remember before your start building an election, you need to have atleast one voterlist uploaded to ElectionYoda. You can upload a voterlist using the "+Create a new voterlist" link on the dashboard.        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            How do I create a voter list?
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+          To create a voter list click the "+ Create a new voterlist". This will take you to a page where you can upload a new voter list. Remember you can only upload a .CSV file with two columns - 1. Full Name and 2. Email Address. Make sure that the file has a header line with these two fields. There should be no other columns in the file.         </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            How do I invite voters to vote in my election?
+          </button>
+        </h5>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body">
+          You can email your voters with a link - www.electionyoda.com/voterregistration" where they can register themselves and then vote. Make sure you share the Election ID of your election.      </div>
+      </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingFour">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              How do I see the Latest Results of my election?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+          <div class="card-body">
+            On the dashboard, click the "See Details" link next to your election to open the latest results of the elections.        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingFive">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              How do I view reports of my election?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+          <div class="card-body">
+            In the election home page at the bottom you will option to open reports of the latest voting patterns.         </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              How do I delete an election or a voterlist?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+          <div class="card-body">
+            In the election home page and voterlist home page at the bottom, under Settings, you will find the option to Delete the election or the voterlist. NOTE: once you delete the election all the data will be deleted from the ElectionYoda database due to privacy and security reasons. So be cautious before deleting any data.        </div>
+      </div>
+  </div>
+
+    {% endblock %}
