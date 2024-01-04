@@ -1,0 +1,7 @@
+{
+    "cmd": ["python", "-m", "flask", "run"],
+    "working_dir": "$project_path",
+    "selector": "source.python",
+    "env": {"FLASK_APP": "app.py", "FLASK_ENV": "development"}
+}
+
