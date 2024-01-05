@@ -5,15 +5,15 @@
 {% endblock %}
 
       {% block main %}
+
     <!-- First Section -->
     <section class="first-section">
         <div class="left-content">
-            <h1>Empower Your Elections with ElectionYoda</h1>
-            <p>Revolutionize the way you conduct online elections. Simple, secure, and efficient.</p>
-            <p>Are you ready to bring democracy online?</p>
-        </div>
+            <h1 style ="color: #537fbe;">Empower Your Elections</h1>
+            <h5>Simple, secure, and efficient.</h5>
+        </div>  
         <div class="right-content">
-          
+          <br><br>
             <form action="/login" method="post">
                 <div class="mb-3">
                     <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="email" name="email"
@@ -25,27 +25,13 @@
                 </div>
                 <button class="btn btn-primary" type="submit">Log In</button>
             </form>
-            
+            <br>
+                <div class="mb-3">
+                    <a class="nav-link" href="/register">Not registered? Click to sign up</a></div>
+                    <br><br>
         </div>
     </section>
 
-    <!-- Second Section -->
-    <section class="second-section">
-        <div class="benefits">
-            <h2>Key Benefits of ElectionYoda</h2>
-            <ul>
-                <li>Build and conduct online elections with ease.</li>
-                <li>Real-time reporting for instant insights.</li>
-                <li>Security measures to protect your elections.</li>
-                <li>Free to use – no hidden costs.</li>
-                <li>Run multiple elections simultaneously.</li>
-            </ul>
-        </div>
-
-        <div class="image-container">
-            <!-- Add your image here -->
-            <img src="path/to/your/image.jpg" alt="ElectionYoda Image">
-        </div>
-    </section>
+   
 {% endblock %}
 
