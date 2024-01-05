@@ -48,6 +48,7 @@ def index():
     voterlists = db.execute("SELECT * FROM Voterlists WHERE user_id = ? ORDER BY uploaddate DESC, uploadtime DESC", session["user_id"])
 
     for voterlist in voterlists:
+        print("Current Working Directory:", os.getcwd())
         with open(voterlist["filename"], mode='r') as csv_file:
             csv_reader = csv.DictReader(csv_file)
             votercount = 0
